@@ -1,0 +1,118 @@
+Admin Login
+admin@wastems.com
+password - Admin12345
+
+
+features
+✅ Firebase Authentication
+
+✅ Admin and Collector roles
+
+✅ Request management
+
+✅ Task assignment
+
+✅ Completed jobs tracking
+
+✅ Dashboard statistics
+
+✅ Role-based access control
+
+✅ Dynamic user profile in sidebar
+
+✅ Separate collector interface
+
+
+waste-management-system/
+
+├── index.html
+├── login.html
+├── dashboard.html
+├── requests.html
+├── tasks.html
+├── completed.html
+├── reports.html
+
+├── css/
+│   ├── style.css
+│   ├── dashboard.css
+│   └── responsive.css
+
+├── js/
+│   ├── firebase-config.js
+│   ├── auth.js
+│   ├── dashboard.js
+│   ├── requests.js
+│   ├── tasks.js
+│   ├── completed.js
+│   └── reports.js
+
+├── assets/
+│   ├── images/
+│   └── icons/
+
+└── README.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+waste-management-system/
+
+├── frontend/
+│   ├── index.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── requests.html
+│   ├── tasks.html
+│   ├── completed.html
+│   ├── reports.html
+│
+│   ├── css/
+│   │   └── style.css
+│
+│   ├── js/
+│   │   ├── auth.js
+│   │   ├── dashboard.js
+│   │   ├── requests.js
+│   │   └── reports.js
+│
+├── backend/
+│   ├── server.js
+│   ├── routes/
+│   ├── controllers/
+│   ├── middleware/
+│   └── firebase.js
+│
+└── database/
+
+
+
+Workflow
+
+Admin Creates Request
+        ↓
+Status = Pending
+        ↓
+Collector Views Requests
+        ↓
+Collector Clicks Accept
+        ↓
+Status = Assigned
+Collector Email Saved
+        ↓
+Appears In My Tasks
+        ↓
+Collector Marks Collected
+        ↓
+Status = Completed
+        ↓
+Appears In Completed Page

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Waste Requests</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+    <div class="profile">
+
+    <div class="avatar" id="userAvatar">
+        A
+    </div>
+
+    <h3 id="userName">
+        Loading...
+    </h3>
+
+    <p id="userRole">
+        Loading...
+    </p>
+
+</div>
+
+    <h2>🌱 WasteMS</h2>
+
+    <ul>
+        <li id="dashboardMenu"><a href="dashboard.html">Dashboard</a></li>
+
+            <li id="collectorMenu">
+                <a href="create-collector.html">
+                    Create Collector
+                </a>
+            </li>
+
+            <li id="newRequestMenu"><a href="new-request.html">New Request</a></li>
+
+            <li><a href="requests.html">Requests</a></li>
+
+            <li><a href="tasks.html">My Tasks</a></li>
+
+            <li><a href="completed.html">Completed</a></li>
+
+            <li id="reportsMenu"><a href="reports.html">Reports</a></li>
+
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+
+    </ul>
+
+</aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <h1>Waste Requests</h1>
+            <p>Manage incoming collection requests.</p>
+        </header>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by location...">
+
+        <section class="table-section">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Waste Type</th>
+                        <th>Quantity</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="requestsTable">
+
+                    <tr>
+                        <td>WM001</td>
+                        <td>Plastic</td>
+                        <td>5 Bags</td>
+                        <td>Tamale</td>
+                        <td>
+                            <span class="status pending">
+                                Pending
+                            </span>
+                        </td>
+                        <td>
+                            <button class="accept-btn">
+                                Accept Task
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>WM002</td>
+                        <td>Organic</td>
+                        <td>10kg</td>
+                        <td>Accra</td>
+                        <td>
+                            <span class="status assigned">
+                                Assigned
+                            </span>
+                        </td>
+                        <td>
+                            <button class="accept-btn" disabled>
+                                Accepted
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>WM003</td>
+                        <td>Metal</td>
+                        <td>3 Bags</td>
+                        <td>Kumasi</td>
+                        <td>
+                            <span class="status pending">
+                                Pending
+                            </span>
+                        </td>
+                        <td>
+                            <button class="accept-btn">
+                                Accept Task
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/requests.js"></script>
+<script type="module" src="js/logout.js"></script>
+<script type="module" src="js/protect-admin.js"></script>
+<script src="js/role-check.js"></script>
+<script src="js/sidebar-role.js"></script>
+<script type="module" src="js/profile.js"></script>
+</body>
+</html>

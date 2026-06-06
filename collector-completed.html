@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Completed Collections</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+            <div class="profile">
+
+    <div class="avatar" id="userAvatar">
+        A
+    </div>
+
+    <h3 id="userName">
+        Loading...
+    </h3>
+
+    <p id="userRole">
+        Loading...
+    </p>
+
+</div>
+
+            <h2>🌱 WasteMS</h2>
+
+            <ul>
+
+                <li>
+                    <a href="collector-requests.html">
+                        Requests
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collector-tasks.html">
+                        My Tasks
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collector-completed.html">
+                        Completed
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="logoutBtn">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <h1>Completed Collections</h1>
+            <p>Successfully completed waste collection jobs.</p>
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>Total Collections</h3>
+                <p id="totalCollections">85</p>
+            </div>
+
+            <div class="card">
+                <h3>Plastic Collected</h3>
+                <p id="plasticCollected">320kg</p>
+            </div>
+
+            <div class="card">
+                <h3>Organic Waste</h3>
+                <p id="organicCollected">450kg</p>
+            </div>
+
+            <!-- <div class="card">
+                <h3>CO₂ Saved</h3>
+                <p id="co2Saved">210kg</p>
+            </div> -->
+
+        </section>
+
+        <section class="table-section">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Waste Type</th>
+                        <th>Quantity</th>
+                        <th>Location</th>
+                        <th>Collector</th>
+                        <th>Date Collected</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="completedTable">
+
+                    <tr>
+                        <td>WM001</td>
+                        <td>Plastic</td>
+                        <td>5 Bags</td>
+                        <td>John Doe</td>
+                        <td>02/06/2026</td>
+                        <td>
+                            <span class="status completed">
+                                Completed
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>WM004</td>
+                        <td>Organic</td>
+                        <td>10kg</td>
+                        <td>Sarah Ali</td>
+                        <td>02/06/2026</td>
+                        <td>
+                            <span class="status completed">
+                                Completed
+                            </span>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/completed.js"></script>
+<script type="module" src="js/logout.js"></script>
+<script type="module" src="js/protect-admin.js"></script>
+<script src="js/role-check.js"></script>
+<script src="js/sidebar-role.js"></script>
+<script type="module" src="js/profile.js"></script>
+</body>
+</html>

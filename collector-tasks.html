@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Tasks</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="profile">
+
+    <div class="avatar" id="userAvatar">
+        A
+    </div>
+
+    <h3 id="userName">
+        Loading...
+    </h3>
+
+    <p id="userRole">
+        Loading...
+    </p>
+
+</div>
+
+    <h2>🌱 WasteMS</h2>
+
+    <ul>
+
+        <li>
+            <a href="collector-requests.html">
+                Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="collector-tasks.html">
+                My Tasks
+            </a>
+        </li>
+
+        <li>
+            <a href="collector-completed.html">
+                Completed
+            </a>
+        </li>
+
+        <li>
+            <a href="#" id="logoutBtn">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <h1>My Tasks</h1>
+            <p>Assigned waste collection jobs.</p>
+        </header>
+
+        <section class="table-section">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Waste Type</th>
+                        <th>Quantity</th>
+                        <th>Location</th>
+                        <th>Collector</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tasksTable">
+
+                    <tr>
+                        <td>WM002</td>
+                        <td>Organic</td>
+                        <td>10kg</td>
+                        <td>Accra</td>
+                        <td>
+                            <span class="status assigned">
+                                Assigned
+                            </span>
+                        </td>
+                        <td>
+                            <button class="complete-btn">
+                                Mark Collected
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>WM004</td>
+                        <td>Plastic</td>
+                        <td>6 Bags</td>
+                        <td>Tamale</td>
+                        <td>
+                            <span class="status assigned">
+                                Assigned
+                            </span>
+                        </td>
+                        <td>
+                            <button class="complete-btn">
+                                Mark Collected
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/tasks.js"></script>
+<script type="module" src="js/logout.js"></script>
+<script type="module" src="js/protect-collector.js"></script>
+<script src="js/role-check.js"></script>
+<script src="js/sidebar-role.js"></script>
+<script type="module" src="js/profile.js"></script>
+
+</body>
+</html>

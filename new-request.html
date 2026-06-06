@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Waste Request</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="profile">
+
+    <div class="avatar" id="userAvatar">
+        A
+    </div>
+
+    <h3 id="userName">
+        Loading...
+    </h3>
+
+    <p id="userRole">
+        Loading...
+    </p>
+
+</div>
+
+        <h2>🌱 WasteMS</h2>
+
+        <ul>
+            <li id="dashboardMenu"><a href="dashboard.html">Dashboard</a></li>
+
+            <li id="collectorMenu">
+                <a href="create-collector.html">
+                    Create Collector
+                </a>
+            </li>
+
+            <li id="newRequestMenu"><a href="new-request.html">New Request</a></li>
+
+            <li><a href="requests.html">Requests</a></li>
+
+            <li><a href="tasks.html">My Tasks</a></li>
+
+            <li><a href="completed.html">Completed</a></li>
+
+            <li id="reportsMenu"><a href="reports.html">Reports</a></li>
+
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+  
+        </ul>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Create Waste Request</h1>
+
+        <form id="requestForm">
+
+            <div class="form-group">
+                <label>Waste Type</label>
+                <select id="wasteType">
+                    <option>Plastic</option>
+                    <option>Organic</option>
+                    <option>Metal</option>
+                    <option>Paper</option>
+                    <option>Electronic</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" id="quantity" placeholder="e.g. 5 Bags">
+            </div>
+
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="location" placeholder="Enter location">
+            </div>
+
+            <button type="submit">
+                Submit Request
+            </button>
+
+        </form>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/new-request.js"></script>
+<script type="module" src="js/logout.js"></script>
+<script src="js/role-check.js"></script>
+<script src="js/sidebar-role.js"></script>
+<script type="module" src="js/profile.js"></script>
+
+</body>
+</html>

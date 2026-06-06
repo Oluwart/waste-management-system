@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reports & Analytics</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+    <div class="profile">
+
+    <div class="avatar" id="userAvatar">
+        A
+    </div>
+
+    <h3 id="userName">
+        Loading...
+    </h3>
+
+    <p id="userRole">
+        Loading...
+    </p>
+
+</div>
+
+    <h2>🌱 WasteMS</h2>
+
+    <ul>
+           <li id="dashboardMenu"><a href="dashboard.html">Dashboard</a></li>
+
+            <li id="collectorMenu">
+                <a href="create-collector.html">
+                    Create Collector
+                </a>
+            </li>
+
+            <li id="newRequestMenu"><a href="new-request.html">New Request</a></li>
+
+            <li><a href="requests.html">Requests</a></li>
+
+            <li><a href="tasks.html">My Tasks</a></li>
+
+            <li><a href="completed.html">Completed</a></li>
+
+            <li id="reportsMenu"><a href="reports.html">Reports</a></li>
+
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+
+    </ul>
+
+</aside>
+
+    <!-- MAIN -->
+     <main class="main-content">
+
+    <header class="topbar">
+        <h1>Reports</h1>
+    </header>
+
+    <section class="cards">
+
+        <div class="card">
+            <h3>Total Requests</h3>
+            <p id="totalRequests">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pending Requests</h3>
+            <p id="pendingRequests">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Assigned Tasks</h3>
+            <p id="assignedTasks">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Completed Tasks</h3>
+            <p id="completedTasks">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Plastic Waste</h3>
+            <p id="plasticWaste">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Organic Waste</h3>
+            <p id="organicWaste">0</p>
+        </div>
+
+        <div class="card">
+            <h3>CO₂ Saved</h3>
+            <p id="co2Saved">0 kg</p>
+        </div>
+
+        <div class="card top-collector-card">
+
+    <h3>🏆 Top Collector</h3>
+
+    <div class="collector-info">
+
+        <div class="collector-avatar"
+             id="topCollectorAvatar">
+            A
+        </div>
+
+        <h2 id="topCollectorName">
+            N/A
+        </h2>
+
+        <p id="topCollectorRole">
+            Waste Collector
+        </p>
+
+        <div class="collector-stats">
+
+            <span>
+                Collections:
+                <strong id="topCollectorCount">
+                    0
+                </strong>
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </section>
+
+   <section class="chart-section">
+
+    <div class="card chart-card">
+
+        <h2>Waste Distribution</h2>
+
+        <canvas id="wasteChart"></canvas>
+
+    </div>
+
+</section>
+
+</main>
+
+   
+
+</div>
+<script type="module" src="js/reports.js"></script>
+<script type="module" src="js/logout.js"></script>
+<script type="module" src="js/protect-admin.js"></script>
+<script src="js/role-check.js"></script>
+<script src="js/sidebar-role.js"></script>
+<script type="module" src="js/profile.js"></script>
+</body>
+</html>
