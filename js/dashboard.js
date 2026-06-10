@@ -19,86 +19,158 @@ async function loadDashboard() {
             document.getElementById("recentRequests");
 
         if (recentRequests) {
+
             recentRequests.innerHTML = "";
+
         }
 
         const querySnapshot =
-            await getDocs(collection(db, "wasteRequests"));
+            await getDocs(
+                collection(db, "wasteRequests")
+            );
 
-        let requests = [];
+        const requests = [];
 
         querySnapshot.forEach((requestDoc) => {
 
-            const data = requestDoc.data();
+            const data =
+                requestDoc.data();
 
             requests.push({
+
                 id: requestDoc.id,
-                ...data
+
+                wasteType:
+                    data.wasteType || "-",
+
+                quantity:
+                    data.quantity || "-",
+
+                location:
+                    data.location || "-",
+
+                status:
+                    data.status || "-",
+
+                createdAt:
+                    data.createdAt || null
+
             });
 
             total++;
 
             if (data.status === "Pending") {
+
                 pending++;
+
             }
 
-            if (data.status === "Assigned") {
+            else if (
+                data.status === "Assigned"
+            ) {
+
                 assigned++;
+
             }
 
-            if (data.status === "Completed") {
+            else if (
+                data.status === "Completed"
+            ) {
+
                 completed++;
                 co2Saved += 2;
+
             }
+
+        });
+
+        // Sort newest requests first
+
+        requests.sort((a, b) => {
+
+            if (
+                a.createdAt &&
+                b.createdAt
+            ) {
+
+                return (
+                    b.createdAt.toMillis() -
+                    a.createdAt.toMillis()
+                );
+
+            }
+
+            if (a.createdAt) return -1;
+
+            if (b.createdAt) return 1;
+
+            return 0;
 
         });
 
         // Dashboard Cards
 
-        document.getElementById("totalRequests").textContent =
-            total;
+        document.getElementById(
+            "totalRequests"
+        ).textContent = total;
 
-        document.getElementById("pendingRequests").textContent =
-            pending;
+        document.getElementById(
+            "pendingRequests"
+        ).textContent = pending;
 
-        document.getElementById("assignedRequests").textContent =
-            assigned;
+        document.getElementById(
+            "assignedRequests"
+        ).textContent = assigned;
 
-        document.getElementById("completedRequests").textContent =
-            completed;
+        document.getElementById(
+            "completedRequests"
+        ).textContent = completed;
 
-        document.getElementById("co2Saved").textContent =
+        document.getElementById(
+            "co2Saved"
+        ).textContent =
             `${co2Saved} kg`;
 
-        document.getElementById("totalWaste").textContent =
+        document.getElementById(
+            "totalWaste"
+        ).textContent =
             completed;
 
-        document.getElementById("communityRequests").textContent =
+        document.getElementById(
+            "communityRequests"
+        ).textContent =
             total;
 
-        // Recent Requests
+        // Recent Requests Table
 
-        requests.reverse();
+        if (recentRequests) {
 
-        requests.slice(0, 5).forEach((request) => {
+            const latestRequests =
+                requests.slice(0, 5);
 
-            if (!recentRequests) return;
+            latestRequests.forEach((request) => {
 
-            recentRequests.innerHTML += `
+                recentRequests.innerHTML += `
                 <tr>
-                    <td>${request.wasteType || "-"}</td>
-                    <td>${request.quantity || "-"}</td>
-                    <td>${request.location || "-"}</td>
-                    <td>${request.status || "-"}</td>
+                    <td>${request.wasteType}</td>
+                    <td>${request.quantity}</td>
+                    <td>${request.location}</td>
+                    <td>${request.status}</td>
                 </tr>
-            `;
+                `;
 
-        });
+            });
+
+        }
 
     }
+
     catch (error) {
 
-        console.error("Dashboard Error:", error);
+        console.error(
+            "Dashboard Error:",
+            error
+        );
 
     }
 

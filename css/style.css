@@ -404,3 +404,41 @@ select{
     height: 300px !important;
     margin: 0 auto;
 }
+
+.edit-btn,
+.delete-btn{
+
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+    margin:2px;
+}
+
+.edit-btn{
+
+    background:#f59e0b;
+    color:white;
+}
+
+.delete-btn{
+
+    background:#ef4444;
+    color:white;
+}
+
+.view-btn{
+
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#collectorEmail{
+    font-size: 25px;
+    font-weight: bold;
+    word-break: break-word;
+}

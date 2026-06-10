@@ -1,64 +1,66 @@
 import { db } from "./firebase-config.js";
 
 import {
-  collection,
-  addDoc
+    collection,
+    addDoc
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
-const form = document.getElementById("requestForm");
+const form =
+    document.getElementById("requestForm");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener(
+    "submit",
+    async (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const wasteType =
-        document.getElementById("wasteType").value;
+        const wasteType =
+            document.getElementById(
+                "wasteType"
+            ).value;
 
-    const quantity =
-        document.getElementById("quantity").value;
+        const quantity =
+            document.getElementById(
+                "quantity"
+            ).value;
 
-    const location =
-        document.getElementById("location").value;
+        const location =
+            document.getElementById(
+                "location"
+            ).value;
 
-    try {
+        try {
 
-        await addDoc(
-            collection(db, "wasteRequests"),
-            {
-                wasteType,
-                quantity,
-                location,
-                status: "Pending"
-            }
-        );
+            await addDoc(
+                collection(
+                    db,
+                    "wasteRequests"
+                ),
+                {
+                    wasteType,
+                    quantity,
+                    location,
+                    status: "Pending",
+                    createdAt: new Date()
+                }
+            );
 
-        alert("Waste request submitted successfully!");
+            alert(
+                "Waste request submitted successfully!"
+            );
 
-        form.reset();
+            form.reset();
 
-    } catch(error) {
+        }
+        catch (error) {
 
-        console.error(error);
+            console.error(error);
 
-        alert("Error submitting request");
+            alert(
+                "Error submitting request"
+            );
 
-    }
+        }
 
-});
-
-await addDoc(
-    collection(db, "wasteRequests"),
-    {
-        wasteType,
-        quantity,
-        location,
-
-        status: "Pending",
-
-        collector: "",
-
-        createdAt: new Date(),
-
-        completedAt: null
     }
 );

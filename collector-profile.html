@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Collector Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <h1>
+                Collector Profile
+            </h1>
+
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+
+                <h3>Name</h3>
+
+                <p id="collectorName">
+                    Loading...
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Email</h3>
+
+                <p id="collectorEmail">
+                    Loading...
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Role</h3>
+
+                <p id="collectorRole">
+                    Loading...
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Completed Jobs</h3>
+
+                <p id="completedJobs">
+                    0
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="table-section">
+
+            <h2>
+                Completed Collections
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Waste Type</th>
+                        <th>Quantity</th>
+                        <th>Location</th>
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="jobsTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script
+    type="module"
+    src="js/collector-profile.js">
+</script>
+
+</body>
+
+</html>
