@@ -18,10 +18,15 @@ async function loadDashboard() {
         const recentRequests =
             document.getElementById("recentRequests");
 
+        const activityList =
+            document.getElementById("recentActivity");
+
         if (recentRequests) {
-
             recentRequests.innerHTML = "";
+        }
 
+        if (activityList) {
+            activityList.innerHTML = "";
         }
 
         const querySnapshot =
@@ -52,6 +57,9 @@ async function loadDashboard() {
                 status:
                     data.status || "-",
 
+                collector:
+                    data.collector || "",
+
                 createdAt:
                     data.createdAt || null
 
@@ -64,7 +72,6 @@ async function loadDashboard() {
                 pending++;
 
             }
-
             else if (
                 data.status === "Assigned"
             ) {
@@ -72,7 +79,6 @@ async function loadDashboard() {
                 assigned++;
 
             }
-
             else if (
                 data.status === "Completed"
             ) {
@@ -84,7 +90,7 @@ async function loadDashboard() {
 
         });
 
-        // Sort newest requests first
+        // Sort newest first
 
         requests.sort((a, b) => {
 
@@ -141,30 +147,71 @@ async function loadDashboard() {
         ).textContent =
             total;
 
-        // Recent Requests Table
+        // Recent Requests
 
         if (recentRequests) {
 
-            const latestRequests =
-                requests.slice(0, 5);
+            requests
+                .slice(0, 5)
+                .forEach((request) => {
 
-            latestRequests.forEach((request) => {
+                    recentRequests.innerHTML += `
+                    <tr>
+                        <td>${request.wasteType}</td>
+                        <td>${request.quantity}</td>
+                        <td>${request.location}</td>
+                        <td>${request.status}</td>
+                    </tr>
+                    `;
 
-                recentRequests.innerHTML += `
-                <tr>
-                    <td>${request.wasteType}</td>
-                    <td>${request.quantity}</td>
-                    <td>${request.location}</td>
-                    <td>${request.status}</td>
-                </tr>
-                `;
+                });
 
-            });
+        }
+
+        // Recent Activity
+
+        if (activityList) {
+
+            requests
+                .slice(0, 10)
+                .forEach((request) => {
+
+                    let activity = "";
+
+                    if (
+                        request.status ===
+                        "Completed"
+                    ) {
+
+                        activity =
+                        `${request.collector || "Collector"} completed a ${request.wasteType} collection`;
+
+                    }
+                    else if (
+                        request.status ===
+                        "Assigned"
+                    ) {
+
+                        activity =
+                        `${request.collector || "Collector"} accepted a ${request.wasteType} request`;
+
+                    }
+                    else {
+
+                        activity =
+                        `New ${request.wasteType} request created`;
+
+                    }
+
+                    activityList.innerHTML += `
+                    <li>${activity}</li>
+                    `;
+
+                });
 
         }
 
     }
-
     catch (error) {
 
         console.error(

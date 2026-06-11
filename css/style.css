@@ -407,7 +407,6 @@ select{
 
 .edit-btn,
 .delete-btn{
-
     border:none;
     padding:8px 12px;
     border-radius:5px;
@@ -416,29 +415,136 @@ select{
 }
 
 .edit-btn{
-
     background:#f59e0b;
     color:white;
+    width:auto;
 }
 
-.delete-btn{
 
+.delete-btn{
     background:#ef4444;
     color:white;
 }
 
 .view-btn{
-
-    background:#2563eb;
-    color:white;
     border:none;
-    padding:8px 12px;
     border-radius:5px;
     cursor:pointer;
+}
+
+.view-btn{
+    background:#2563eb;
+    color:white;
+    padding:8px 14px;
+    width:auto;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.view-btn:hover{
+    background:#1d4ed8;
 }
 
 #collectorEmail{
     font-size: 25px;
     font-weight: bold;
     word-break: break-word;
+}
+
+.activity-card{
+    grid-column: span 2;
+}
+
+#recentActivity{
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#recentActivity li{
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.export-btn{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-bottom:20px;
+    font-size:15px;
+}
+
+.export-btn:hover{
+    opacity:0.9;
+}
+
+
+.details-card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin-top:20px;
+    box-shadow:
+    0 2px 10px
+    rgba(0,0,0,0.1);
+
+}
+
+.details-card p{
+    margin-bottom:15px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.accepted-btn{
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    opacity:.7;
+    cursor:not-allowed;
+}
+
+.accepted-btn:hover{
+    opacity:1;
+}
+
+.delete-btn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    width:auto;
+    border-radius:6px;
+    cursor:pointer;
+    margin-right:8px;
+}
+
+.delete-btn:hover{
+    background:#af0404;
+}
+
+.action-buttons{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.accepted-btn,
+.accept-btn,
+.delete-btn,
+.view-btn{
+    margin:0;
 }

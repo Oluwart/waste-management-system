@@ -237,3 +237,166 @@ async function loadReports() {
 }
 
 loadReports();
+
+document
+    .getElementById("exportBtn")
+    .addEventListener(
+        "click",
+        exportCompletedCollections
+    );
+
+async function exportCompletedCollections() {
+
+    const querySnapshot =
+        await getDocs(
+            collection(db, "wasteRequests")
+        );
+
+    let csvContent =
+        "Request ID,Waste Type,Quantity,Location,Collector,Date Completed\n";
+
+    querySnapshot.forEach((requestDoc) => {
+
+        const data =
+            requestDoc.data();
+
+        if (
+            data.status === "Completed"
+        ) {
+
+            let completedDate =
+                "";
+
+            if (data.completedAt) {
+
+                completedDate =
+                    data.completedAt
+                    .toDate()
+                    .toLocaleDateString();
+
+            }
+
+            csvContent +=
+                `"${requestDoc.id}",` +
+                `"${data.wasteType || ""}",` +
+                `"${data.quantity || ""}",` +
+                `"${data.location || ""}",` +
+                `"${data.collector || ""}",` +
+                `"${completedDate}"\n`;
+
+        }
+
+    });
+
+    const blob =
+        new Blob(
+            [csvContent],
+            {
+                type:
+                "text/csv;charset=utf-8;"
+            }
+        );
+
+    const link =
+        document.createElement("a");
+
+    const url =
+        URL.createObjectURL(blob);
+
+    link.href = url;
+
+    link.download =
+        "completed_collections.csv";
+
+    link.click();
+
+    URL.revokeObjectURL(url);
+
+}
+
+document
+    .getElementById("excelBtn")
+    .addEventListener(
+        "click",
+        exportToExcel
+    );
+
+async function exportToExcel() {
+
+    const querySnapshot =
+        await getDocs(
+            collection(db, "wasteRequests")
+        );
+
+    const reportData = [];
+
+    querySnapshot.forEach((requestDoc) => {
+
+        const data =
+            requestDoc.data();
+
+        if (
+            data.status === "Completed"
+        ) {
+
+            let completedDate =
+                "N/A";
+
+            if (
+                data.completedAt
+            ) {
+
+                completedDate =
+                    data.completedAt
+                    .toDate()
+                    .toLocaleDateString();
+
+            }
+
+            reportData.push({
+
+                "Request ID":
+                    requestDoc.id,
+
+                "Waste Type":
+                    data.wasteType,
+
+                "Quantity":
+                    data.quantity,
+
+                "Location":
+                    data.location,
+
+                "Collector":
+                    data.collector ||
+                    "Not Assigned",
+
+                "Date Completed":
+                    completedDate
+
+            });
+
+        }
+
+    });
+
+    const worksheet =
+        XLSX.utils.json_to_sheet(
+            reportData
+        );
+
+    const workbook =
+        XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+        workbook,
+        worksheet,
+        "Completed Collections"
+    );
+
+    XLSX.writeFile(
+        workbook,
+        "WasteMS_Report.xlsx"
+    );
+
+}
