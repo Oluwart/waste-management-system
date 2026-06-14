@@ -89,15 +89,12 @@ async function loadRequests() {
             <tr>
 
                 <td>${requestDoc.id}</td>
-
+                <td>${data.fullName || "-"}</td>
+                <td>${data.phone || "-"}</td>
                 <td>${data.wasteType || "-"}</td>
-
                 <td>${data.quantity || "-"}</td>
-
                 <td>${data.location || "-"}</td>
-
                 <td>${data.status || "-"}</td>
-
                 <td>
                     <div class="action-buttons">
                         ${actionButtons}

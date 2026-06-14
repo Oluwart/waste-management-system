@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<title>Waste Collection Request</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="public-form-container">
+
+
+<h1>Waste Collection Request</h1>
+
+<p>
+    Submit your waste collection request.
+</p>
+
+<form id="publicRequestForm">
+
+    <input
+        type="text"
+        id="fullName"
+        placeholder="Full Name"
+        required>
+
+    <input
+        type="tel"
+        id="phone"
+        placeholder="Phone Number"
+        required>
+
+    <input
+        type="text"
+        id="location"
+        placeholder="Location"
+        required>
+
+    <select
+        id="wasteType"
+        required>
+
+        <option value="">
+            Select Waste Type
+        </option>
+
+        <option value="Plastic">
+            Plastic
+        </option>
+
+        <option value="Organic">
+            Organic
+        </option>
+
+        <option value="Paper">
+            Paper
+        </option>
+
+        <option value="Metal">
+            Metal
+        </option>
+
+        <option value="Glass">
+            Glass
+        </option>
+
+    </select>
+
+    <input
+        type="text"
+        id="quantity"
+        placeholder="Quantity (e.g. 10 Bags)"
+        required>
+
+    <button type="submit">
+        Submit Request
+    </button>
+
+</form>
+
+</div>
+
+<script type="module"
+        src="js/public-request.js">
+</script>
+
+</body>
+</html>
