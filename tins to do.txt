@@ -192,3 +192,11 @@ If this were my project, I would do:
 5. WhatsApp Integration 📱
 
 Those five features would make your system look polished and presentation-ready. 🚀
+
+
+The full WhatsApp bot can take several days to set up because Meta requires:
+
+Business verification
+Webhook configuration
+API tokens
+Phone number registration
